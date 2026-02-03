@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuyPal Live Catalog</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-title">BuyPal • Catálogo Live</div>
+      <div class="brand-sub">Toca una cámara para ver y agregar al combo</div>
+    </div>
+
+    <div class="top-actions">
+      <button id="btnFull" class="btn ghost">Pantalla completa</button>
+      <button id="btnClear" class="btn danger">Vaciar combo</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- CATALOGO -->
+    <section class="catalog">
+      <div class="catalog-toolbar">
+        <div class="tabs" id="categoryTabs"></div>
+
+        <div class="search">
+          <input id="searchInput" type="text" placeholder="Buscar cámara (ej: Cruiser, Ranger, Dual)..." />
+        </div>
+      </div>
+
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <!-- CARRITO -->
+<aside class="cart">
+  <div class="cart-header">
+    <div class="cart-title">Combo actual</div>
+  </div>
+
+  <div class="cart-items-wrap">
+    <ul id="cartItems" class="cart-items"></ul>
+  </div>
+
+  <div class="totals">
+    <div class="total-row">
+      <span>Total del combo</span>
+      <span id="cartTotal" class="total-amount">S/ 0</span>
+    </div>
+
+    <div class="cart-actions">
+      <button id="btnUndo" class="btn ghost">Quitar último</button>
+      <button id="btnSummary" class="btn">Ver resumen</button>
+    </div>
+
+    <div class="copy-note" id="copyNote"></div>
+  </div>
+</aside>
+
+
+  <!-- MODAL (Producto en grande + 5 puntos) -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="modalClose" class="modal-close">✕</button>
+
+      <div class="modal-body">
+        <img id="modalImg" alt="Producto" />
+
+        <div class="modal-info">
+          <div id="modalName" class="modal-name"></div>
+          <div id="modalPrice" class="modal-price"></div>
+
+          <!-- ✅ 5 puntos clave -->
+          <ul id="modalHighlights" class="modal-highlights"></ul>
+
+          <button id="modalAdd" class="btn big">Agregar al combo</button>
+          <div id="modalAddedNote" class="modal-added hidden">
+                    Ya agregado al combo
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- MODAL RESUMEN (combo) -->
+<div id="summaryModal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card summary-card">
+    <button id="summaryClose" class="modal-close">✕</button>
+
+    <div class="summary-body">
+      <div class="summary-title">Resumen del combo</div>
+
+      <!-- Cámaras -->
+      <div id="summaryLines" class="summary-lines"></div>
+
+      <!-- Combo -->
+<div class="summary-extras">
+  <div class="extras-head">Combo</div>
+
+  <div id="comboBox" class="combo-box">
+    <!-- JS renderiza aquí cada cámara + su memoria -->
+  </div>
+</div>
+
+      <!-- Totales -->
+      <div class="summary-totals">
+        <div class="row discount">
+  <span>Subtotal</span>
+  <span id="sumSubtotal">S/ 0</span>
+</div>
+
+
+
+    <div class="discount-row">
+  <label>Precio final</label>
+
+  <div class="price-input">
+    <span class="currency">S/</span>
+    <input id="finalInput" type="text" inputmode="numeric" />
+  </div>
+</div>
+
+
+<div class="row discount">
+  <span>Descuento</span>
+  <span id="sumDiscountValue">S/ 0</span>
+</div>
+
+<div class="divider"></div>
+
+<div class="row final">
+  <span>TOTAL FINAL</span>
+  <span id="sumFinal">S/ 0</span>
+</div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
